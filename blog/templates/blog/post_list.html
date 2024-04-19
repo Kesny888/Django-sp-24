@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Django Girl's Blog</title>
+    </head>
+<body>
+    <!--The header tag is used to section off a piece of the website that usually contanis icons, title og the page, etc...-->
+    <header>
+        <!--h1 (ot h tags there are h1, h2, h3 , etc...) bolen text and acts as titles and subtitles to sections-->
+       <!--a href is an anchor tag (link) to link other pages-->
+        <h1><a href="">
+          Django Girls Blog  </a>
+        </h1>
+    </header>
+    <!--artical tag - also used a a div..divides into separte entities classed article -->
+    {% for post in posts %}
+    <article>
+        
+        <h2>{{ post.title }}</h2>
+        <time>published: {{ post.published_date }}</time>
+        <p>{{ post.text|linebreaksbr }}
+        </p>
+    </article>
+    {% endfor %}
+</body>
+</html>
