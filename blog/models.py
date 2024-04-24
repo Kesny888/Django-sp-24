@@ -9,6 +9,7 @@ from django.utils import timezone
 class Post(models.Model):
     #grab the author id from the user database. If the user is deleted, it will delete all the posts associated with that use
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
