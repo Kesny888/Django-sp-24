@@ -13,13 +13,31 @@
         <div class="container">
         <!--h1 (ot h tags there are h1, h2, h3 , etc...) bolen text and acts as titles and subtitles to sections-->
        <!--a href is an anchor tag (link) to link other pages-->
-            <h1><a href="">
+       {% if user.is_authenticated %}
+       <a href="{% url 'post_new' %}" class="top-menu">
+        {% include './icons/file-earmark-plus.svg' %}
+    </a>    
+    <a href="{% url 'post_draft_list' %}" class="top-menu">
+        {% include './icons/pencil-square.svg' %}
+    </a>
+ 
+    <a href="{% url 'logout' %}" class="top-menu">
+        {% include './icons/door-closed.svg' %}
+    </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="top-menu">
+            {% include './icons/door-open.svg' %}
+        </a>
+       
+        {% endif %}
+            <h1><a href="/">
             Django Girls Blog  </a>
             </h1>
         </div>
     </header>
     <!--artical tag - also used a a div..divides into separte entities classed article -->
     <main class="container">
+        
         <div class="row">
             <div class="col">
                 {% block content %}
